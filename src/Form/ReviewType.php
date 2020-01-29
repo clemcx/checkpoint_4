@@ -2,6 +2,8 @@
 
 namespace App\Form;
 
+use App\Entity\ArtGenre;
+use App\Entity\ArtType;
 use App\Entity\Review;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
