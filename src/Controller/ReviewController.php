@@ -2,9 +2,13 @@
 
 namespace App\Controller;
 
+use App\Entity\ArtType;
+use App\Entity\ArtGenre;
+use App\Entity\Work;
 use App\Entity\Review;
 use App\Form\ReviewType;
 use App\Repository\ReviewRepository;
+use http\Exception;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -31,6 +35,7 @@ class ReviewController extends AbstractController
      * @Route("/new", name="review_new", methods={"GET","POST"})
      * @param Request $request
      * @return Response
+         * @throws \Exception
      */
     public function new(Request $request): Response
     {
@@ -40,6 +45,9 @@ class ReviewController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
+            
+            $date = new \DateTime('now');
+            $review->setPublishedDate($date);
             $entityManager->persist($review);
             $entityManager->flush();
 
