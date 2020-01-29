@@ -8,6 +8,7 @@ use App\Entity\Work;
 use App\Entity\Review;
 use App\Form\ReviewType;
 use App\Repository\ReviewRepository;
+use Doctrine\ORM\EntityManagerInterface;
 use http\Exception;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -75,17 +76,22 @@ class ReviewController extends AbstractController
     /**
      * @Route("/{id}/edit", name="review_edit", methods={"GET","POST"})
      * @param Request $request
+     * @param EntityManagerInterface $em
      * @param Review $review
      * @return Response
+     * @throws \Exception
      */
-    public function edit(Request $request, Review $review): Response
+    public function edit(Request $request, EntityManagerInterface $em ,Review $review): Response
     {
         $form = $this->createForm(ReviewType::class, $review);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
-
+    
+            $date = new \DateTime('now');
+            $review->setEditDate($date);
+            $em->flush();
             return $this->redirectToRoute('review_index');
         }
 
