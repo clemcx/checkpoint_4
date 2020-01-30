@@ -7,8 +7,7 @@
     <main id="workShow">
 
         <section class="infos">
-            <img src="https://pbs.twimg.com/media/EB3UiXVUYAIE7yR?format=jpg&name=large">
-{{ work.creator }}
+            <img src="{{ work.picture }}">
             <div class="textInfos">
                 <p>Description : {{ work.description }}</p>
                 <p>Creator : {{ work.creator }}</p>
@@ -26,6 +25,14 @@
                         <p>{{ review.content }}</p>
                         <p>{{ review.rating }}/10</p>
                     </div>
+                    <form method="post">
+                        <h2>Laissez votre avis</h2>
+                        {{ form_start(form) }}
+                        {{ form_widget(form) }}
+                        <button class="btn">{{ button_label|default('Save') }}</button>
+                        {{ form_end(form) }}
+
+                    </form>
                     <div class="comments">
                         <h2>messages</h2>
                     {% for comment  in review.comments %}

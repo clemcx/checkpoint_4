@@ -12,7 +12,7 @@
       <section id="bestReviews">
             {% for review in bestReviews  %}
            <p>
-            <a href="{{ path('work_show', {'id': review.work.id})  }}">  {{ review.work.title }}</a> {{ review.work.title }} {{ review.rating }}/10
+            <a href="{{ path('work_show', {'id': review.work.id})  }}">  {{ review.work.title }}</a> {{ review.rating }}/10
            </p>
             {% endfor %}
        </section>

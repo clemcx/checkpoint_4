@@ -1,21 +1,26 @@
 $theme-colors: (
-        "info": #e03d70,
-        "primary":#7a7271,
+        "info": #eeeeee,
+        "primary":#21215e,
 );
 
 @import "~bootstrap/scss/bootstrap";
 
-
+ .navbar{
+     background-color: #21215e;
+ }
 body{
-    background-color: #141921;
+    background-image: url("https://d3d00swyhr67nd.cloudfront.net/w1200h1200/collection/OU/ASCC/OU_ASCC_ASC_172-001.jpg");
+
+
     p{
-        color:white;
+         color: #21215e;
+        font-weight: bolder;
     };
 
     h1{
         font-size: 50px;
         text-align: center;
-        color: white ;
+        color: #21215e;
     }
 
     #workShow{
@@ -25,49 +30,49 @@ body{
         flex-wrap: wrap;
         margin: auto;
         justify-content: space-between;
+        overflow: scroll;
 
         .infos{
 
             height: 70vh;
+            width: 40vw;
             position: relative;
             display:flex;
             justify-content: flex-start;
             align-items: flex-end;
 
             img{
-                height:100%;
+                min-height:60vh;
+                width: 100%;
 
 
             }
             .textInfos{
+                width: 100%;
                 position: absolute;
-                color: white;
+                color: #082940;
+                background-color: rgba(245, 233, 216, 0.51);
             }
         }
         .commentary {
-            min-width: 30vw;
+            width: 40vw;
             height: 70vh;
             margin: auto;
+            border: #dfdfdf solid 2px;
             overflow: auto;
 
-            p{
-                color: #21215e;
-            }
             .oneReview {
                 margin-bottom: 1em;
-                background-color: #dfdfdf;
+                background-color: rgba(245, 233, 216, 0.25);
 
                 .reviews {
                     margin: 1em;
-
                     height: 70%;
                     border-bottom: #21215e 2px solid;
 
                 }
 
                 .comments {
-
-
                     overflow: auto;
                 }
             }
@@ -92,8 +97,10 @@ body{
 
 #mainHome{
     section{
-        width:80vw;
+        max-width:65vw;
         border: #dfdfdf solid 2px;
         margin: auto auto 2em;
+
+        background-color: rgba(245, 233, 216, 0.51);
     }
 }
