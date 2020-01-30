@@ -48,6 +48,11 @@ class Review
      */
     private $comments;
 
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $rating;
+
     public function __construct()
     {
         $this->comments = new ArrayCollection();
@@ -145,6 +150,18 @@ class Review
                 $comment->setReview(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getRating(): ?int
+    {
+        return $this->rating;
+    }
+
+    public function setRating(int $rating): self
+    {
+        $this->rating = $rating;
 
         return $this;
     }

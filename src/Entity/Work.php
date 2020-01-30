@@ -58,6 +58,11 @@ class Work
      */
     private $title;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $country;
+
     public function __construct()
     {
         $this->reviews = new ArrayCollection();
@@ -213,6 +218,18 @@ class Work
     public function setTitle(string $title): self
     {
         $this->title = $title;
+
+        return $this;
+    }
+
+    public function getCountry(): ?string
+    {
+        return $this->country;
+    }
+
+    public function setCountry(?string $country): self
+    {
+        $this->country = $country;
 
         return $this;
     }
