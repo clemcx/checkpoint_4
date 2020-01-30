@@ -3,11 +3,13 @@
 namespace App\Controller;
 
 use App\Entity\Review;
+
 use App\Entity\Work;
 use App\Entity\Comment;
 use App\Form\CommentType;
 use App\Form\WorkType;
 use App\Repository\WorkRepository;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -59,31 +61,14 @@ class WorkController extends AbstractController
      * @Route("/{id}", name="work_show", methods={"GET","POST"})
      * @param Request $request
      * @param Work $work
-     * @param Review $review
      * @return Response,
      */
-    public function show(Request $request, Work $work, Review $review): Response
+    public function show(Request $request, Work $work): Response
     {
-        $comment = new Comment();
-        
-        $form = $this->createForm(CommentType::class, $comment);
-        $form->handleRequest($request);
-        
-        if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($comment);
-            $comment->setReview($review);
-            $entityManager->flush();
-           
-            return $this->redirectToRoute('work_index',['id'=>$work->getId()]);
-        }
-        
         
         return $this->render('work/show.html.twig', [
             'work' => $work,
-            'form' => $form->createView(),
-            'review' => $review
-        
+            
         ]);
     }
     

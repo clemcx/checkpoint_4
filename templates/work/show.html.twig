@@ -25,14 +25,11 @@
                         <p>{{ review.content }}</p>
                         <p>{{ review.rating }}/10</p>
                     </div>
-                    <form method="post">
-                        <h2>Laissez votre avis</h2>
-                        {{ form_start(form) }}
-                        {{ form_widget(form) }}
-                        <button class="btn">{{ button_label|default('Save') }}</button>
-                        {{ form_end(form) }}
-
-                    </form>
+                 <div>
+                     <a href="{{ path('review_comment', {'id': review.id}) }}">
+                         <button>Laissez votre avis</button>
+                     </a>
+                 </div>
                     <div class="comments">
                         <h2>messages</h2>
                     {% for comment  in review.comments %}

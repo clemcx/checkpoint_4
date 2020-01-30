@@ -121,7 +121,38 @@ class ReviewController extends AbstractController
             $entityManager->remove($review);
             $entityManager->flush();
         }
-
+        
         return $this->redirectToRoute('review_index');
+    }
+    
+    /**
+     * @Route("/{id}/comment" , name="review_comment" , methods={"GET","POST"})
+     * @param Request $request
+     * @param Review $review
+    
+     * @return Response
+     */
+    
+    public function addComment(Request $request, Review $review): Response
+    {
+        $comment = new Comment();
+       
+        $form = $this->createForm(CommentType::class, $comment);
+        $form->handleRequest($request);
+    
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($comment);
+            $entityManager->flush();
+            $comment->setReview($review);
+            $entityManager->flush();
+            $work = $review->getWork();
+            return $this->redirectToRoute('work_show',['id'=>$work->getId()]);
+        }
+    
+        return $this->render('review/comment.html.twig',[
+            'review' => $review,
+            'form' => $form->createView(),
+        ]);
     }
 }
