@@ -4,20 +4,18 @@ $theme-colors: (
 );
 
 @import "~bootstrap/scss/bootstrap";
-h1{
-    font-size: 50px;
-    text-align: center;
-    color: white;
-}
 
 
 body{
     background-color: #141921;
+    p{
+        color:white;
+    };
+
     h1{
         font-size: 50px;
         text-align: center;
     }
-
 
     main{
         height: 65vh;
@@ -30,10 +28,9 @@ body{
         .infos{
 
             height: 70vh;
-            margin: 2em;
             position: relative;
             display:flex;
-            justify-content: flex-end;
+            justify-content: flex-start;
             align-items: flex-end;
 
             img{
@@ -46,23 +43,32 @@ body{
                 color: white;
             }
         }
-        .commentary{
-            min-width: 40vw;
+        .commentary {
+            min-width: 30vw;
             height: 70vh;
-            margin:auto;
+            margin: auto;
             overflow: auto;
 
-            .reviews{
+            .oneReview {
+                margin-bottom: 1em;
                 background-color: #dfdfdf;
-                margin: 1em;
-                height :70%            }
 
-            .comments{
-                background-color: #dfdfdf;
-                margin: 1em;
-                overflow: auto;
+                .reviews {
+                    margin: 1em;
+
+                    height: 70%;
+                    border-bottom: #21215e 2px solid;
+
+                }
+
+                .comments {
+
+
+                    overflow: auto;
+                }
             }
         }
+
     }
 
 

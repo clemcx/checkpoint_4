@@ -1,4 +1,15 @@
 {% extends 'base.html.twig' %}
  {% block body %}
-
+<div>
+ {% for review in lastReviews %}
+ <p> {{ review.author }} {{ review.work.title }} {{ review.editDate | date('d/M/Y') }}</p>
+ {% endfor %}
+</div>
+<div>
+  {% for review in bestReviews  %}
+ <p>
+  {{ review.author }} {{ review.work.title }} {{ review.rating }}/10
+ </p>
+  {% endfor %}
+</div>
 {% endblock %}
