@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Log in!{% endblock %}
+
+{% block main %}
+    <section id="loginForm">
+        <form method="post">
+            {% if error %}
+                <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+            {% endif %}
+
+            <h1 >Connexion</h1>
+            <label for="inputAdmin">admin or user</label>
+            <input id="inputAdmin" value="{{ admin }}" name="email" required autofocus>
+            <label for="inputPassword">Mot de passe</label>
+            <input id="inputPassword" type="password" name="password" class="form-control" required>
+
+            <input type="hidden" name="_csrf_token"
+                   value="{{ csrf_token('authenticate') }}"
+            >
+
+            <div class="button">
+                <button type="submit">
+                    Connexion
+                </button>
+            </div>
+        </form>
+    </section>
+{% endblock %}
