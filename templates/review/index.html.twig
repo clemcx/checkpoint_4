@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Review index{% endblock %}
+{% block title %}liste des reviews{% endblock %}
 
 {% block body %}
     <h1>Review index</h1>
@@ -8,9 +8,7 @@
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
                 <th>Author</th>
-                <th>Content</th>
                 <th>PublishedDate</th>
                 <th>EditDate</th>
                 <th>actions</th>
@@ -19,9 +17,7 @@
         <tbody>
         {% for review in reviews %}
             <tr>
-                <td>{{ review.id }}</td>
                 <td>{{ review.author }}</td>
-                <td>{{ review.content }}</td>
                 <td>{{ review.publishedDate ? review.publishedDate|date('Y-m-d H:i:s') : '' }}</td>
                 <td>{{ review.editDate ? review.editDate|date('Y-m-d H:i:s') : '' }}</td>
                 <td>

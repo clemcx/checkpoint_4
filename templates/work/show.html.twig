@@ -3,36 +3,44 @@
 {% block title %}Work{% endblock %}
 
 {% block body %}
-    <h1>Work</h1>
+    <h1>{{ work.title }}</h1>
+    <main>
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ work.id }}</td>
-            </tr>
-            <tr>
-                <th>Description</th>
-                <td>{{ work.description }}</td>
-            </tr>
-            <tr>
-                <th>Creator</th>
-                <td>{{ work.creator }}</td>
-            </tr>
-            <tr>
-                <th>ReleaseDate</th>
-                <td>{{ work.releaseDate }}</td>
-            </tr>
-            <tr>
-                <th>Title</th>
-                <td>{{ work.title }}</td>
-            </tr>
-        </tbody>
-    </table>
+        <section class="infos">
+            <img src="https://pbs.twimg.com/media/EB3UiXVUYAIE7yR?format=jpg&name=large">
 
+            <div class="textInfos">
+                <p>Description</p>
+                <p>{{ work.description }}</p>
+
+                <p>Creator</p>
+                <p>{{ work.creator }}</p>
+
+                <p>ReleaseDate</p>
+                <p>{{ work.releaseDate }}</p>
+            </div>
+        </section>
+        <section class="commentary">
+
+            {% for review in work.reviews  %}
+                <div class="reviews">
+                    <h2>Ma review</h2>
+                    <p> {{ review.author }} {{ review.editDate | date('d/m/Y') }}</p>
+                    <p>{{ review.content }}</p>
+                </div>
+                <div class="comments">
+                    <h2>messages</h2>
+                {% for comment  in review.comments %}
+                    <p> {{ comment.author }} {{ comment.content }}</p>
+                {% endfor %}
+                </div>
+            {% endfor %}
+        </section>
+    </main>
     <a href="{{ path('work_index') }}">back to list</a>
 
     <a href="{{ path('work_edit', {'id': work.id}) }}">edit</a>
 
     {{ include('work/_delete_form.html.twig') }}
+
 {% endblock %}
