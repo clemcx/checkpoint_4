@@ -4,9 +4,77 @@ $theme-colors: (
 );
 
 @import "~bootstrap/scss/bootstrap";
-body{
-    background-color: rgba(27, 95, 155, 0.64);
-}
 h1{
     font-size: 50px;
+    text-align: center;
+    color: white;
+}
+
+
+body{
+    background-color: #141921;
+    h1{
+        font-size: 50px;
+        text-align: center;
+    }
+
+
+    main{
+        height: 65vh;
+        width: 95vw;
+        display:flex;
+        flex-wrap: wrap;
+        margin: auto;
+        justify-content: space-between;
+
+        .infos{
+
+            height: 70vh;
+            margin: 2em;
+            position: relative;
+            display:flex;
+            justify-content: flex-end;
+            align-items: flex-end;
+
+            img{
+                height:100%;
+
+
+            }
+            .textInfos{
+                position: absolute;
+                color: white;
+            }
+        }
+        .commentary{
+            min-width: 40vw;
+            height: 70vh;
+            margin:auto;
+            overflow: auto;
+
+            .reviews{
+                background-color: #dfdfdf;
+                margin: 1em;
+                height :70%            }
+
+            .comments{
+                background-color: #dfdfdf;
+                margin: 1em;
+                overflow: auto;
+            }
+        }
+    }
+
+
+
+    /*--------------review_index--------------*/
+
+
+    .table{
+        background-color: #dfdfdf;
+        width: 80vw;
+        margin: auto;
+        height: 70vh;
+    }
+
 }

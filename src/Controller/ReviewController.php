@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\ArtType;
 use App\Entity\ArtGenre;
+use App\Entity\Comment;
 use App\Entity\Work;
 use App\Entity\Review;
 use App\Form\ReviewType;
@@ -68,8 +69,10 @@ class ReviewController extends AbstractController
      */
     public function show(Review $review): Response
     {
+       
         return $this->render('review/show.html.twig', [
             'review' => $review,
+            
         ]);
     }
     
