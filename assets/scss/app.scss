@@ -15,9 +15,10 @@ body{
     h1{
         font-size: 50px;
         text-align: center;
+        color: white ;
     }
 
-    main{
+    #workShow{
         height: 65vh;
         width: 95vw;
         display:flex;
@@ -49,6 +50,9 @@ body{
             margin: auto;
             overflow: auto;
 
+            p{
+                color: #21215e;
+            }
             .oneReview {
                 margin-bottom: 1em;
                 background-color: #dfdfdf;
@@ -83,4 +87,13 @@ body{
         height: 70vh;
     }
 
+}
+/*-------------homePage------------------*/
+
+#mainHome{
+    section{
+        width:80vw;
+        border: #dfdfdf solid 2px;
+        margin: auto auto 2em;
+    }
 }

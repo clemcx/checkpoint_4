@@ -25,7 +25,8 @@
             return $this->render('home/index.html.twig', [
                 'lastReviews'=> $lastReviews,
                 'bestReviews'=> $bestReviews,
-               'artGenres'=> $artGenres
+               'artGenres'=> $artGenres,
+               
             ]);
         }
     }
