@@ -8,20 +8,19 @@
     <table class="table">
         <thead>
             <tr>
-                <th>Author</th>
-                <th>PublishedDate</th>
-                <th>EditDate</th>
-                <th>actions</th>
+                <th> Art Work</th>
+                <th>Published </th>
+                <th>Edit</th>
+                <th> </th>
             </tr>
         </thead>
         <tbody>
         {% for review in reviews %}
             <tr>
-                <td>{{ review.author }}</td>
-                <td>{{ review.publishedDate ? review.publishedDate|date('Y-m-d H:i:s') : '' }}</td>
-                <td>{{ review.editDate ? review.editDate|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ review.work.title|title}}</td>
+                <td>{{ review.publishedDate ? review.publishedDate|date('d-m-Y') : '' }}</td>
+                <td>{{ review.editDate ? review.editDate|date('d-m-Y') : '' }}</td>
                 <td>
-                    <a href="{{ path('review_show', {'id': review.id}) }}">show</a>
                     <a href="{{ path('review_edit', {'id': review.id}) }}">edit</a>
                 </td>
             </tr>
@@ -33,5 +32,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('review_new') }}">Create new</a>
+    <p><a href="{{ path('review_new') }}">Create new</a></p>
 {% endblock %}
