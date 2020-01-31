@@ -4,81 +4,176 @@ $theme-colors: (
 );
 
 @import "~bootstrap/scss/bootstrap";
+/**--------------*navabar-----------------*/
+nav{
+    .navbar-brand{
+        font-size: 2.8em;
+        margin-right: 1.3em;;
+    }
 
- .navbar{
-     background-color: #21215e;
- }
-body{
+    .nav-item{
+        color:white;
+        font-size: 2em;
+         margin-right: 2em;
+    }
+}
+body {
     background-image: url("https://d3d00swyhr67nd.cloudfront.net/w1200h1200/collection/OU/ASCC/OU_ASCC_ASC_172-001.jpg");
 
+    a {
+        text-decoration: none;
+    }
 
-    p{
-         color: #21215e;
+    p {
+        color: #21215e;
         font-weight: bolder;
-    };
+    }
+;
 
-    h1{
+    h1 {
         font-size: 50px;
         text-align: center;
         color: #21215e;
     }
 
-    #workShow{
-        height: 65vh;
+    h2 {
+        font-size: 30px;
+        text-align: center;
+        color: #21215e;
+    }
+
+    .button {
+        width: 4em;
+        height: 2em;
+        margin-top: 4rem;
+        outline: none;
+        cursor: pointer;
+        background-color: rgba(223, 223, 223, 0.51);
+        transition: .5s;
+        font-size: 24px;
+        border: #21215e 5px solid;
+        border-radius: 5px;
+        font-family: "Lato", sans-serif;
+
+        &:hover {
+            border: none;
+            color: white;
+            font-size: 28px;
+            transform: scale(1.1);
+        }
+    }
+
+
+    #workShow {
+        height: 75vh;
         width: 95vw;
-        display:flex;
+        display: flex;
         flex-wrap: wrap;
         margin: auto;
-        justify-content: space-between;
         overflow: scroll;
 
-        .infos{
+        .infos {
 
-            height: 70vh;
-            width: 40vw;
+            height: 67vh;
             position: relative;
-            display:flex;
+            display: flex;
             justify-content: flex-start;
             align-items: flex-end;
+            margin: auto auto 2em;
 
-            img{
-                min-height:60vh;
+            img {
+                min-height: 60vh;
                 width: 100%;
 
 
             }
-            .textInfos{
+
+            .textInfos {
                 width: 100%;
                 position: absolute;
                 color: #082940;
-                background-color: rgba(245, 233, 216, 0.51);
+                background-color: rgba(245, 233, 216, 0.6);
             }
         }
+
         .commentary {
-            width: 40vw;
-            height: 70vh;
-            margin: auto;
+
+            height: 67vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 2em;
             border: #dfdfdf solid 2px;
-            overflow: auto;
+            overflow: scroll;
+            flex-wrap: wrap;
+            background-color: rgba(223, 223, 223, 0.51);
 
             .oneReview {
+                width: 60vh;
                 margin-bottom: 1em;
-                background-color: rgba(245, 233, 216, 0.25);
+                margin-right: 2rem;
 
                 .reviews {
                     margin: 1em;
-                    height: 70%;
-                    border-bottom: #21215e 2px solid;
-
-                }
-
-                .comments {
-                    overflow: auto;
+                    height: 85%;
                 }
             }
+
+            a {
+                text-decoration: none;
+            }
+
+            .button {
+                justify-content: flex-start;
+                align-items: flex-end;
+                margin: auto auto 2em;
+                width: 2em;
+                padding: 5px;
+                height: 0.7em;
+                outline: none;
+                cursor: pointer;
+                transition: .5s;
+                font-size: 24px;
+                border: #21215e 5px solid;
+                border-radius: 5px;
+
+                &:hover {
+                    border: none;
+                    color: rgba(16, 74, 120, 0.75);
+                    font-size: 28px;
+                    transform: scale(1.1);
+                }
+            }
+
+            #comments {
+                margin-top: 1em;
+                padding-left: 1.5rem;
+                display: flex;
+                flex-direction: column;
+                overflow: auto;
+                border-left: #21215e 2px solid;
+
+                #oneComment {
+                    display: flex;
+                    border-bottom: rgba(223, 223, 223, 0.65) solid 1px;
+
+                    #name {
+                        color: #104a78;
+                        margin-right: 3em;
+                    }
+
+                    #content {
+                        display: flex;
+                        padding-right: 1em;
+
+                    }
+                }
+            }
+
         }
 
     }
+}
 
 
 
@@ -92,7 +187,7 @@ body{
         height: 70vh;
     }
 
-}
+
 /*-------------homePage------------------*/
 
 #mainHome{
@@ -102,5 +197,35 @@ body{
         margin: auto auto 2em;
 
         background-color: rgba(245, 233, 216, 0.51);
+    }
+}
+/*-----------forms--------------*/
+.mainForm {
+
+    margin: auto;
+    width: 90%;
+
+    form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 65vh;
+        background-color: rgba(223, 223, 223, 0.3);
+        overflow: scroll;
+
+        div{
+             display: flex;
+            flex-direction: column;
+            margin: auto;
+            width: 80%;
+
+            textarea{
+               height:25vh;
+                margin-top: 2em;
+            }
+
+        }
+
     }
 }

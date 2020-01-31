@@ -2,14 +2,19 @@
  {% block body %}
   <main id="mainHome">
       <section id="lastReviews">
+          <h2> Last reviews</h2>
            {% for review in lastReviews %}
-           <p> {{ review.author }} {{ review.work.title }} {{ review.editDate | date('d/M/Y') }}</p>
+           <p> {{ review.work.title }} {{ review.publishedDate | date('d/M/Y') }}</p>
            {% endfor %}
       </section>
    <section id="current Favorite">
-
+       <h2> Recent most Like</h2>
+       {% for review in currentFavs %}
+           <p>{{ review.work.title }} {{ review.editDate | date('d/M/Y') }} </p>
+       {% endfor %}
    </section>
       <section id="bestReviews">
+         <h2> All Favorites </h2>
             {% for review in bestReviews  %}
            <p>
             <a href="{{ path('work_show', {'id': review.work.id})  }}">  {{ review.work.title }}</a> {{ review.rating }}/10

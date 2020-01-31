@@ -1,8 +1,15 @@
-<form method="post">
-    <h2>Laissez votre avis</h2>
-    {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
-    {{ form_end(form) }}
+{% extends 'base.html.twig' %}
 
-</form>
+{% block title %}Work{% endblock %}
+
+{% block body %}
+<main class="mainForm">
+    <h1>Tell us what you think</h1>
+    <form method="post">
+        {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <button class="button">{{ button_label|default('Send') }}</button>
+        {{ form_end(form) }}
+    </form>
+</main>
+{% endblock %}

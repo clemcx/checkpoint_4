@@ -18,7 +18,25 @@ class ReviewRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Review::class);
     }
-
+    
+    
+    public function findCurrentFavs(): array
+    {
+        return $this->createQueryBuilder('r')
+            ->orderBy('r.rating' , 'DESC')
+            ->orderBy('r.editDate', 'DESC')
+            ->setMaxResults('5')
+            ->getQuery()
+            ->getResult()
+            ;
+    }
+    
+    
+    
+    
+    
+    
+    
     // /**
     //  * @return Review[] Returns an array of Review objects
     //  */

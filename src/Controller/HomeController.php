@@ -21,11 +21,13 @@
         {
            $lastReviews = $reviewRepository->findBy([],['editDate' => 'DESC'], '3');
            $bestReviews = $reviewRepository->findBy([],['rating' => 'DESC'], '5');
+           $currentFavs = $reviewRepository->findCurrentFavs();
             $artGenres = $artGenreRepository->findall();
             return $this->render('home/index.html.twig', [
                 'lastReviews'=> $lastReviews,
                 'bestReviews'=> $bestReviews,
                'artGenres'=> $artGenres,
+                'currentFavs'=> $currentFavs
                
             ]);
         }
